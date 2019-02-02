@@ -8,7 +8,10 @@ import {
   updateOpenMarkets
 } from "modules/reports/actions/update-markets-in-reporting-state";
 
-export const loadReporting = (marketIdsParam, callback = logError) => (dispatch, getState) => {
+export const loadReporting = (marketIdsParam, callback = logError) => (
+  dispatch,
+  getState
+) => {
   const { universe, loginAccount } = getState();
   const designatedReportingParams = {
     universe: universe.id,
@@ -19,24 +22,26 @@ export const loadReporting = (marketIdsParam, callback = logError) => (dispatch,
     dispatch(
       loadMarketsInfoIfNotLoaded(marketIdsParam, (err, marketData) => {
         if (err) return logError(err);
-        let preReporting = []; 
-        let designatedReporting = [];
-        let openReporting = [];
-        for (let marketId in marketData) {
-          const state = marketData[marketId].reportingState;
-          if (state === constants.REPORTING_STATE.PRE_REPORTING) {
-            preReporting.push(market.id)
-          }
-          if (state === constants.REPORTING_STATE.DESIGNATED_REPORTING) {
-            designatedReporting.push(market.id)
-          }
-          if (state === constants.REPORTING_STATE.OPEN_REPORTING) {
-            openReporting.push(market.id)
-          }
-        }
-        dispatch(updateUpcomingDesignatedReportingMarkets(preReporting));
-        dispatch(updateDesignatedReportingMarkets(designatedReporting));
-        dispatch(updateOpenMarkets(openReporting));
+        const preReporting = [];
+        const designatedReporting = [];
+        const openReporting = [];
+        if (marketData) {
+          Object.keys(marketData).forEach(marketId => {
+            const state = marketData[marketId].reportingState;
+            if (state === constants.REPORTING_STATE.PRE_REPORTING) {
+              preReporting.push(marketId);
+            }
+            if (state === constants.REPORTING_STATE.DESIGNATED_REPORTING) {
+              designatedReporting.push(marketId);
+            }
+            if (state === constants.REPORTING_STATE.OPEN_REPORTING) {
+              openReporting.push(marketId);
+            }
+          });
+          dispatch(updateUpcomingDesignatedReportingMarkets(preReporting));
+          dispatch(updateDesignatedReportingMarkets(designatedReporting));
+          dispatch(updateOpenMarkets(openReporting));
+        } 
       })
     );
     return;
