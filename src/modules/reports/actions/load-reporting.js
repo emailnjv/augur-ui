@@ -17,12 +17,12 @@ export const loadReporting = (marketIdsParam, callback = logError) => (dispatch,
 
   if (marketIdsParam) {
     dispatch(
-      loadMarketsInfoIfNotLoaded(marketIds, (err, marketData) => {
+      loadMarketsInfoIfNotLoaded(marketIdsParam, (err, marketData) => {
         if (err) return logError(err);
         let preReporting = []; 
         let designatedReporting = [];
         let openReporting = [];
-        for (marketId in marketIdsParam) {
+        for (let marketId in marketData) {
           const state = marketData[marketId].reportingState;
           if (state === constants.REPORTING_STATE.PRE_REPORTING) {
             preReporting.push(market.id)
@@ -30,15 +30,16 @@ export const loadReporting = (marketIdsParam, callback = logError) => (dispatch,
           if (state === constants.REPORTING_STATE.DESIGNATED_REPORTING) {
             designatedReporting.push(market.id)
           }
-           if (state === constants.REPORTING_STATE.OPEN_REPORTING) {
+          if (state === constants.REPORTING_STATE.OPEN_REPORTING) {
             openReporting.push(market.id)
           }
         }
         dispatch(updateUpcomingDesignatedReportingMarkets(preReporting));
         dispatch(updateDesignatedReportingMarkets(designatedReporting));
         dispatch(updateOpenMarkets(openReporting));
-      });
+      })
     );
+    return;
   }
 
   augur.augurNode.submitRequest(
