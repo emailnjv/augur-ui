@@ -41,7 +41,7 @@ export const loadReporting = (marketIdsParam, callback = logError) => (
           dispatch(updateUpcomingDesignatedReportingMarkets(preReporting));
           dispatch(updateDesignatedReportingMarkets(designatedReporting));
           dispatch(updateOpenMarkets(openReporting));
-        } 
+        }
       })
     );
     return;
