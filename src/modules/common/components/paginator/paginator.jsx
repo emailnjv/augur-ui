@@ -236,9 +236,7 @@ class Paginator extends Component {
                   search: s.backQuery
                 }}
               >
-                <i className="fa">
-                  { PaginationArrorw }
-                </i>
+                <i className="fa">{PaginationArrorw}</i>
               </Link>
             )}
           </div>
@@ -261,7 +259,7 @@ class Paginator extends Component {
                 }}
               >
                 <i style={{ transform: "rotateY(180deg)" }} className="fa">
-                  { PaginationArrorw }
+                  {PaginationArrorw}
                 </i>
               </Link>
             )}
