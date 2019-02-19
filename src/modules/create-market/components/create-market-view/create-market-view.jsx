@@ -13,8 +13,9 @@ const CreateMarketView = p => (
       <title>Create Market</title>
     </Helmet>
     <div>
-      <CreateMarketPreview {...p} />
-      <CreateMarketForm {...p} />
+      {/* <CreateMarketPreview {...p} />
+      <CreateMarketForm {...p} /> */}
+      erwer
     </div>
   </section>
 );

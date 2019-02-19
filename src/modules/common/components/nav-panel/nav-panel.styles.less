@@ -1,9 +1,9 @@
-@import (reference) '~assets/styles/shared';
+@import (reference) "~assets/styles/shared";
 
 .NavPanel {
   display: flex;
   min-height: 100%;
-  min-width: 15em;
+  min-width: 20em;
 }
 
 .NavPanel__controls {
@@ -20,8 +20,8 @@
 
 .NavPanel__control {
   align-items: center;
-  background: @color-purple;
-  border-bottom: 1px solid @color-grayish-purple;
+  background: @color-union-blue;
+  border-bottom: 1px solid @color-grayish-union-blue;
   color: @color-white;
   cursor: pointer;
   display: flex;
@@ -31,7 +31,7 @@
   padding: 0 2rem;
 
   &:hover {
-    background: @color-grayish-purple;
+    background: @color-grayish-union-blue;
   }
 
   &:last-child {
@@ -40,7 +40,7 @@
 
   @media @breakpoint-mobile {
     & {
-      border-left: 1px solid @color-grayish-purple;
+      border-left: 1px solid @color-grayish-union-blue;
       flex-basis: 33%;
       flex-flow: wrap column;
       height: 6em;
@@ -61,7 +61,7 @@
 }
 
 .NavPanel__control--active {
-  background: @color-grayish-purple;
+  background: @color-grayish-union-blue;
 }
 
 .NavPanel__icon {

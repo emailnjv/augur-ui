@@ -1,4 +1,4 @@
-@import (reference) '~assets/styles/shared';
+@import (reference) "~assets/styles/shared";
 
 .Input {
   .border(true, @border-all, @color-input-border-no-focus, @border-width-1);
@@ -73,7 +73,7 @@
 .Input__max {
   .caps--small();
 
-  color: @color-purple;
+  color: @color-union-blue;
   padding: 0 1rem;
 }
 
@@ -121,12 +121,12 @@
     .border(true, @border-all, @color-input-border, @border-width-1);
   }
 
-  input[type='number'] {
+  input[type="number"] {
     appearance: textfield;
   }
 
-  input[type=number]::-webkit-outer-spin-button,
-  input[type=number]::-webkit-inner-spin-button {
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
     appearance: none;
     margin: 0;
   }

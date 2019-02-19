@@ -2,13 +2,21 @@ import asyncComponent from "modules/common/components/async-component";
 
 // NOTE -- Webpack code splits at each of these imports to reduce the initial load time.
 
-export const Markets = asyncComponent({
+export const Markets = asyncComponent( {
   moduleName: "Markets",
   loader: () =>
-    import(/* webpackChunkName: 'markets' */ "modules/markets-list/containers/markets-view-container").then(
+    import(/* webpackChunkName: 'markets' */ "modules/markets-list/containers/markets-view-container" ).then(
       module => module.default
     )
-});
+} );
+
+export const Feed = asyncComponent( {
+  moduleName: "Feed",
+  loader: () =>
+    import(/* webpackChunkName: 'markets' */ "modules/union-feed/containers/union-feed" ).then(
+      module => module.default
+    )
+} );
 
 export const Account = asyncComponent({
   moduleName: "Account",

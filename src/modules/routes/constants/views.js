@@ -1,4 +1,5 @@
 // MAIN VIEWS
+export const FEED = "feed";
 export const MARKET = "market";
 export const MARKETS = "markets";
 export const CREATE_MARKET = "create-market";

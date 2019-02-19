@@ -1,13 +1,13 @@
-@import (reference) '~assets/styles/shared';
+@import (reference) "~assets/styles/shared";
 
 .SideNav {
-  background: @color-purple;
+  background: @color-union-blue;
   display: flex;
   flex-flow: column nowrap;
 }
 
 .SideNav__nav {
-  border: 1px solid @color-grayish-purple;
+  border: 1px solid @color-grayish-union-blue;
   border-left: none;
   border-right: none;
   list-style: none;
@@ -17,7 +17,9 @@
   > li {
     border-bottom: 1px solid #573980;
 
-    &:last-child { border: none; }
+    &:last-child {
+      border: none;
+    }
   }
 
   .disabled {
@@ -59,7 +61,9 @@
       cursor: pointer;
     }
 
-    &:last-child { border: none; }
+    &:last-child {
+      border: none;
+    }
 
     > span {
       color: @color-white;
@@ -132,7 +136,7 @@
   }
 
   .SideNav__nav__separator {
-    background: @color-grayish-purple;
+    background: @color-grayish-union-blue;
     height: 1px;
   }
 
@@ -194,7 +198,9 @@
         justify-content: flex-start;
         padding: 1rem;
 
-        &:hover { background: none; }
+        &:hover {
+          background: none;
+        }
 
         > svg {
           display: inline-block;

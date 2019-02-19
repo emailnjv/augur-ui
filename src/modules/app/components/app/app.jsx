@@ -44,6 +44,7 @@ import parseQuery from "modules/routes/helpers/parse-query";
 import getValue from "utils/get-value";
 
 import {
+  FEED,
   MARKETS,
   ACCOUNT_DEPOSIT,
   ACCOUNT_WITHDRAW,
@@ -65,6 +66,7 @@ import { CATEGORY_PARAM_NAME } from "modules/filter-sort/constants/param-names";
 import Styles from "modules/app/components/app/app.styles";
 import MarketsInnerNavContainer from "modules/app/containers/markets-inner-nav";
 import { NotificationBarContainer } from "modules/notifications/containers/notification-bar";
+import { UnionFeed } from "modules/union-feed/containers/union-feed.js";
 
 export const mobileMenuStates = {
   CLOSED: 0,
@@ -77,6 +79,7 @@ const SUB_MENU = "subMenu";
 const MAIN_MENU = "mainMenu";
 
 const navTypes = {
+  [ FEED ]: UnionFeed,
   [MARKETS]: MarketsInnerNavContainer,
   [MY_MARKETS]: PortfolioInnerNav,
   [MY_POSITIONS]: PortfolioInnerNav,
@@ -138,8 +141,17 @@ export default class AppView extends Component {
       currentInnerNavType: null,
       isNotificationsVisible: false
     };
-
+    
     this.sideNavMenuData = [
+      {
+        title: "Feed",
+        iconName: "nav-account-icon",
+        icon: NavAccountIcon,
+        mobileClick: () =>
+          this.setState( { mobileMenuState: mobileMenuStates.FIRSTMENU_OPEN } ),
+        route: FEED,
+        requireLogin: true
+      },
       {
         title: "Markets",
         icon: NavMarketsIcon,
@@ -177,7 +189,7 @@ export default class AppView extends Component {
         iconName: "nav-account-icon",
         icon: NavAccountIcon,
         mobileClick: () =>
-          this.setState({ mobileMenuState: mobileMenuStates.FIRSTMENU_OPEN }),
+          this.setState( { mobileMenuState: mobileMenuStates.FIRSTMENU_OPEN } ),
         route: ACCOUNT_DEPOSIT,
         requireLogin: true
       },

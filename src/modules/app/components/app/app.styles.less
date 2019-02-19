@@ -1,4 +1,4 @@
-@import '~assets/styles/shared'; // NOTE -- this is the ONLY location this file should be brought in w/out the `(reference)` directive
+@import "~assets/styles/shared"; // NOTE -- this is the ONLY location this file should be brought in w/out the `(reference)` directive
 
 body,
 html,
@@ -7,7 +7,7 @@ html,
 }
 
 body {
-  background: @color-almostblack;
+  background: @color-union-blue !important;
 
   @media @breakpoint-mobile {
     --is-mobile: true;
@@ -35,7 +35,7 @@ h6 {
   display: grid;
 
   /* sidebar width */
-  grid-template-columns: @top-bar-height auto;
+  grid-template-columns: @side-bar-height auto;
   height: 100%;
 
   @media @breakpoint-mobile {
@@ -91,7 +91,7 @@ h6 {
 }
 
 .SideBar {
-  background: @color-purple;
+  background: @color-union-blue;
   height: 100vh;
   position: relative;
   z-index: @mask-above;

@@ -16,6 +16,10 @@ const Routes = p => (
     <Route path={makePath(VIEWS.MARKETS)} component={COMPONENTS.Markets} />
     <Route path={makePath(VIEWS.MARKET)} component={COMPONENTS.Market} />
     <AuthenticatedRoute
+      path={makePath(VIEWS.FEED)}
+      component={COMPONENTS.Feed}
+    />
+    <AuthenticatedRoute
       path={makePath(VIEWS.DISPUTE)}
       component={COMPONENTS.Dispute}
     />
